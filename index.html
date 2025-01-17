@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temukan Artikel Yang Menarik</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        article img {
+            transition: transform 0.3s;
+        }
+        article img:hover {
+            transform: scale(1.05); 
+        }
+
+        /*untuk menghilangkan underline pada judul artikel */
+        article a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .read-more {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .read-more:hover {
+            background-color: #0056b3;
+        }
+
+        .social-media {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .social-media a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+</head>
+<body
+        class="page-fade-in">
+    <header>
+        <div class="container">
+            <h1>Pemweb Kel 11</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Halaman Utama</a></li>
+                    <li><a href="page2.html">Tentang Kami</a></li>
+                </ul>
+            </nav>
+            <form id="searchForm" class="search-form">
+                <input type="text" id="searchInput" placeholder="Cari artikel...">
+                <button type="submit">Cari</button>
+            </form>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="articles">
+            <article>
+                <a href="artikel1.html">
+                    <img src="assets/gartikel1.jpg" alt="Gambar Artikel 1">
+                    <h2>Mengenal Ikan Guppy</h2>
+                </a>
+                <p style="text-align: justify; margin-bottom: 20px;">Ikan guppy, atau yang juga dikenal sebagai Poecilia reticulata, adalah salah satu ikan air tawar paling populer di dunia aquascape dan akuarium hias. Dikenal dengan warna-warni yang mencolok dan pola ekor yang unik, <a class="read-more" href="artikel1.html">Baca Selengkapnya</a></p>
+            </article>
+
+            <article>
+                <a href="artikel2.html">
+                    <img src="assets/gartikel2.jpg" alt="Gambar Artikel 2">
+                    <h2>Mengenal TikTok affiliate: ini syarat dan ketentuannya</h2>
+                </a>
+                <p style="text-align: justify; margin-bottom: 20px;">TikTok affiliate program resmi diluncurkan pada tahun 2021. Program ini memberikan kesempatan bagi pengguna TikTok untuk memonetisasi konten mereka dengan mempromosikan, <a class="read-more" href="artikel2.html">Baca Selengkapnya</a></p>
+            </article>
+
+            <article>
+                <a href="artikel3.html">
+                    <img src="assets/gartikel3.jpg" alt="Gambar Artikel 3">
+                    <h2>10 Coding Dasar HTML yang Blogger Wajib Tahu</h2>
+                </a>
+                <p style="text-align: justify; margin-bottom: 20px;">Untuk menjadi seorang blogger yang baik, kemampuan blogging saja tidak cukup. Anda perlu mengoptimasi SEO supaya performa blog lebih maksimal. Salah satu caranya yaitu dengan memahami coding HTML dasar untuk blogger. <a class="read-more" href="artikel3.html">Baca Selengkapnya</a></p>
+            </article>
+
+            <article>
+                <a href="artikel4.html">
+                    <img src="assets/gartikel4.jpg" alt="Gambar Artikel 4">
+                    <h2>Tips dan Cara Memulai Bisnis Sendiri</h2>
+                </a>
+                <p style="text-align: justify; margin-bottom: 20px;">Cara memulai bisnis mungkin terlihat sulit bagi seseorang yang baru pertama kali ingin terjun ke dunia usaha. Dalam berbisnis sendiri, diperlukan wawasan atau pengetahuan untuk melakukannya, <a class="read-more" href="artikel4.html">Baca Selengkapnya</a></p>
+            </article>
+        </section>
+
+        <section class="social-media">
+            <h2>Ikuti Kami di Sosial Media</h2>
+            <a href="https://www.instagram.com/irsyadhnf?igsh=bGxjc3FkYWExYXM4" target="_blank">
+                <img src="assets/logoig.png" alt="Logo Instagram" style="width: 30px; height: 30px;">
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Pemweb Kel 11</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const articles = document.querySelectorAll('.articles article');
+            let found = false;
+
+            articles.forEach(article => {
+                const title = article.querySelector('h2').innerText.toLowerCase();
+                if (title.includes(query)) {
+                    article.style.display = 'block';
+                    found = true;
+                } else {
+                    article.style.display = 'none';
+                }
+            });
+
+            if (!found) {
+                alert("Artikel tidak ditemukan.");
+            }
+        });
+    </script>
+    
+</body>
+</html>
